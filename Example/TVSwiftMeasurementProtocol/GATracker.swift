@@ -136,7 +136,7 @@ class GATracker {
         self.send("event", params: params)
     }
     
-    func expection(description: String, isFatal:Bool, customParameters: Dictionary<String, String>?) {
+    func exception(description: String, isFatal:Bool, customParameters: Dictionary<String, String>?) {
         /*
             An exception hit with exception description (exd) and "fatality"  (Crashed or not) (exf)
         */

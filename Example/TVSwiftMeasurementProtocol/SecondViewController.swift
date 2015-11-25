@@ -23,7 +23,7 @@ class SecondViewController: UIViewController {
     @IBAction func exceptionFIred(sender: AnyObject) {
         print("Exception Fired")
         GATracker.sharedInstance.send("transaction", params: ["tid":"10001", "tr":"425,00", "cu":"USD"])
-        GATracker.sharedInstance.expection("This test failed", isFatal: true, customParameters: nil)
+        GATracker.sharedInstance.exception("This test failed", isFatal: true, customParameters: nil)
     }
 
 }
