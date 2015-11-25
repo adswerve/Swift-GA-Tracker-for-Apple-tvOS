@@ -48,3 +48,8 @@ GATracker.sharedInstance.send("transaction", params: ["tid":"10001", "tr":"425,0
 ```
 
 For additional information email gethelp@analyticspros.com or visit our website http://www.analyticspros.com
+### Sample App
+When running the sample app make sure ot update the property id in the app delegate.
+```
+GATracker.setup("[insert your GA property id]")
+```
