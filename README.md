@@ -27,7 +27,7 @@ GATracker.sharedInstance.event("category", action: "action", label: nil, customP
 ### Exception
 When sending the exception hit, the exception description and exception “fatality” are both required parameters
 ```
-GATracker.sharedInstance.expection("This test failed", isFatal: true, customParameters: nil)
+GATracker.sharedInstance.exception("This test failed", isFatal: true, customParameters: nil)
 ```
 ### Sending Additional Parameters
 With each hit you are also able to send additional parameters as specified in the Measurement Protocol reference. Examples include: “non interactive hit”, “event value”,  “custom dimensions”, “custom metrics” etc. 
