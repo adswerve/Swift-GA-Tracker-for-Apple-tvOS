@@ -47,4 +47,4 @@ In the following example we will send a transaction hit with transaction id 1000
 GATracker.sharedInstance.send("transaction", params: ["tid":"10001", "tr":"425,00", "cu":"USD"])
 ```
 
-For additional information email gethelp@analyticspros.com or visit our website [http://www.analyticspros.com](http://www.analyticspros.com]
+For additional information email gethelp@analyticspros.com or visit our website http://www.analyticspros.com
