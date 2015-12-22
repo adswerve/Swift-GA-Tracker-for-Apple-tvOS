@@ -94,12 +94,22 @@ class GATracker {
             #endif
             
             let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) -> Void in
-                let httpResponse = response as! NSHTTPURLResponse
-                let statusCode = httpResponse.statusCode
+
+                do{
+                    let httpResponse = response as! NSHTTPURLResponse
+                    let statusCode = httpResponse.statusCode
+
+                    #if DEBUG
+                        print(statusCode)
+                    #endif
+                }
+                catch{
+                    #if DEBUG
+                        print(error)
+                    #endif
+                }
                 
-                #if DEBUG
-                    print(statusCode)
-                #endif
+                
             }
             task.resume()
         }
