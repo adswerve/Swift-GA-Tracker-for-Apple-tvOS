@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		63B0C30B1C04FE38005DBADD /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B0C30A1C04FE38005DBADD /* SecondViewController.swift */; };
+		63FB3F781C2A0A3E00F9CD76 /* GATracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB3F771C2A0A3E00F9CD76 /* GATracker.swift */; };
 		63FDDF091C043AA400A6E364 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FDDF081C043AA400A6E364 /* AppDelegate.swift */; };
 		63FDDF0B1C043AA400A6E364 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FDDF0A1C043AA400A6E364 /* ViewController.swift */; };
 		63FDDF0E1C043AA400A6E364 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63FDDF0C1C043AA400A6E364 /* Main.storyboard */; };
 		63FDDF101C043AA400A6E364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63FDDF0F1C043AA400A6E364 /* Assets.xcassets */; };
 		63FDDF1B1C043AA400A6E364 /* TVSwiftMeasurementProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FDDF1A1C043AA400A6E364 /* TVSwiftMeasurementProtocolTests.swift */; };
 		63FDDF261C043AA400A6E364 /* TVSwiftMeasurementProtocolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FDDF251C043AA400A6E364 /* TVSwiftMeasurementProtocolUITests.swift */; };
-		63FDDF341C043AB100A6E364 /* GATracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FDDF331C043AB100A6E364 /* GATracker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		63B0C30A1C04FE38005DBADD /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		63FB3F771C2A0A3E00F9CD76 /* GATracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GATracker.swift; sourceTree = "<group>"; };
 		63FDDF051C043AA400A6E364 /* TVSwiftMeasurementProtocol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVSwiftMeasurementProtocol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63FDDF081C043AA400A6E364 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63FDDF0A1C043AA400A6E364 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +49,6 @@
 		63FDDF211C043AA400A6E364 /* TVSwiftMeasurementProtocolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVSwiftMeasurementProtocolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63FDDF251C043AA400A6E364 /* TVSwiftMeasurementProtocolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSwiftMeasurementProtocolUITests.swift; sourceTree = "<group>"; };
 		63FDDF271C043AA400A6E364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63FDDF331C043AB100A6E364 /* GATracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GATracker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +102,7 @@
 				63FDDF081C043AA400A6E364 /* AppDelegate.swift */,
 				63FDDF0A1C043AA400A6E364 /* ViewController.swift */,
 				63B0C30A1C04FE38005DBADD /* SecondViewController.swift */,
-				63FDDF331C043AB100A6E364 /* GATracker.swift */,
+				63FB3F771C2A0A3E00F9CD76 /* GATracker.swift */,
 				63FDDF0C1C043AA400A6E364 /* Main.storyboard */,
 				63FDDF0F1C043AA400A6E364 /* Assets.xcassets */,
 				63FDDF111C043AA400A6E364 /* Info.plist */,
@@ -260,8 +260,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				63B0C30B1C04FE38005DBADD /* SecondViewController.swift in Sources */,
-				63FDDF341C043AB100A6E364 /* GATracker.swift in Sources */,
 				63FDDF0B1C043AA400A6E364 /* ViewController.swift in Sources */,
+				63FB3F781C2A0A3E00F9CD76 /* GATracker.swift in Sources */,
 				63FDDF091C043AA400A6E364 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
