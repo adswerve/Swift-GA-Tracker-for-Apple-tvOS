@@ -129,12 +129,10 @@ class GATracker {
         /*
             An event hit with category, action, label
         */
-        if label == nil {
-            label = ""
-        }
-       
+        let label = label ?? ""
+
         //event parameters category, action and label
-        var params = ["ec" : category, "ea" : action, "el" : label!]
+        var params = ["ec" : category, "ea" : action, "el" : label]
         if (customParameters != nil) {
             for (key, value) in customParameters! {
                 params.updateValue(value, forKey: key)
@@ -147,12 +145,10 @@ class GATracker {
         /*
         An event hit with category, interval, name, label
         */
-        if label == nil {
-            label = ""
-        }
-        
+        let label = label ?? ""
+
         //measure parameters category, interval, name and label
-        var params = ["utc" : category, "utv" : name, "utl" : label!, "utt" : "\(interval)"]
+        var params = ["utc" : category, "utv" : name, "utl" : label, "utt" : "\(interval)"]
         if (customParameters != nil) {
             for (key, value) in customParameters! {
                 params.updateValue(value, forKey: key)
