@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        GATracker.setup("UA-77279286-1")
+        GATracker.setup("UA-1234567-89")
         return true
     }
 
