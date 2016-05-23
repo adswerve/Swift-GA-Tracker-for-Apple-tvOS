@@ -26,6 +26,7 @@ class GATracker {
     var appVersion : String
     var MPVersion : String
     var ua : String
+    var ul : String
     
     //Set up singleton object for the tracker
     class func setup(tid: String) -> GATracker {
@@ -70,6 +71,13 @@ class GATracker {
             self.cid = NSUUID().UUIDString
             defaults.setObject(self.cid, forKey: "cid")
         }
+        
+        let language = NSLocale.preferredLanguages().first
+        if language?.characters.count > 0 {
+            self.ul = language!
+        } else {
+            self.ul = "(not set)"
+        }
     }
     
     func send(type: String, params: Dictionary<String, String>) {
@@ -78,8 +86,8 @@ class GATracker {
             Consists out of hit type and a dictionary of other parameters
         */
         let endpoint = "https://www.google-analytics.com/collect?"
-        var parameters = "v=" + self.MPVersion + "&an=" + self.appName + "&tid=" + self.tid + "&av=" + self.appVersion + "&cid=" + self.cid + "&t=" + type + "&ua=" + self.ua
-        
+        var parameters = "v=" + self.MPVersion + "&an=" + self.appName + "&tid=" + self.tid + "&av=" + self.appVersion + "&cid=" + self.cid + "&t=" + type + "&ua=" + self.ua + "&ul=" + self.ul
+
         for (key, value) in params {
             parameters += "&" + key + "=" + value
         }
@@ -141,24 +149,6 @@ class GATracker {
             }
         }
         self.send("event", params: params)
-    }
-    
-    func measure(category: String, interval: UInt64, name : String, var label: String?, customParameters: Dictionary<String, String>?) {
-        /*
-        An event hit with category, interval, name, label
-        */
-        if label == nil {
-            label = ""
-        }
-        
-        //measure parameters category, interval, name and label
-        var params = ["utc" : category, "utv" : name, "utl" : label!, "utt" : "\(interval)"]
-        if (customParameters != nil) {
-            for (key, value) in customParameters! {
-                params.updateValue(value, forKey: key)
-            }
-        }
-        self.send("timing", params: params)
     }
     
     func exception(description: String, isFatal:Bool, customParameters: Dictionary<String, String>?) {
