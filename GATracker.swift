@@ -137,12 +137,9 @@ class GATracker {
         /*
             An event hit with category, action, label
         */
-        
-        //set the local variable _label to label or "" if that is nil
-        let _label = label == nil ? "" : label!
-       
+         
         //event parameters category, action and label
-        var params = ["ec" : category, "ea" : action, "el" : _label]
+        var params = ["ec" : category, "ea" : action, "el" : label ?? ""]
         if (customParameters != nil) {
             for (key, value) in customParameters! {
                 params.updateValue(value, forKey: key)
