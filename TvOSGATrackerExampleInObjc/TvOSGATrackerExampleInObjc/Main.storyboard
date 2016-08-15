@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="7Z1-cE-A3Q">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Frh-F8-7NX">
+            <objects>
+                <viewController id="7Z1-cE-A3Q" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GKv-ch-tLQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="EiN-Lg-Tio"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Y3S-q3-fUY">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mt3-hv-JZy">
+                                <rect key="frame" x="836" y="497" width="249" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Fire Event"/>
+                                <connections>
+                                    <action selector="fireEvent:" destination="7Z1-cE-A3Q" eventType="primaryActionTriggered" id="cqp-dk-MmH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxk-0h-MRP">
+                                <rect key="frame" x="815" y="603" width="290" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Next Screen"/>
+                                <connections>
+                                    <action selector="nextScreenPressed:" destination="7Z1-cE-A3Q" eventType="primaryActionTriggered" id="jGx-SH-9wB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="mt3-hv-JZy" firstAttribute="centerY" secondItem="Y3S-q3-fUY" secondAttribute="centerY" id="5J7-Ro-bpt"/>
+                            <constraint firstItem="dxk-0h-MRP" firstAttribute="centerX" secondItem="Y3S-q3-fUY" secondAttribute="centerX" id="6rq-8b-v9p"/>
+                            <constraint firstItem="dxk-0h-MRP" firstAttribute="top" secondItem="mt3-hv-JZy" secondAttribute="bottom" constant="20" id="QZY-R9-9A9"/>
+                            <constraint firstItem="mt3-hv-JZy" firstAttribute="centerX" secondItem="Y3S-q3-fUY" secondAttribute="centerX" id="RgH-aX-sF1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="s9n-ZA-QNI" kind="show" identifier="toSecondViewController" id="C7d-ou-MT7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sj6-Iz-JE7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-560" y="-151"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="bdW-Ht-mZ8">
+            <objects>
+                <viewController id="s9n-ZA-QNI" customClass="SecondViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pvf-Z4-QHE"/>
+                        <viewControllerLayoutGuide type="bottom" id="O2W-XG-LkW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YgN-Za-1LV">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0g-Fj-k4L">
+                                <rect key="frame" x="800" y="497" width="321" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Fire Exception"/>
+                                <connections>
+                                    <action selector="exceptionFIred:" destination="s9n-ZA-QNI" eventType="primaryActionTriggered" id="msQ-no-ZHO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="e0g-Fj-k4L" firstAttribute="centerY" secondItem="YgN-Za-1LV" secondAttribute="centerY" id="6bB-F8-tR0"/>
+                            <constraint firstItem="e0g-Fj-k4L" firstAttribute="centerX" secondItem="YgN-Za-1LV" secondAttribute="centerX" id="b70-Ea-Mtk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2QG-5A-UGF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1744" y="-58"/>
+        </scene>
+    </scenes>
+</document>
