@@ -133,16 +133,13 @@ class GATracker {
         self.send("screenview", params: params)
     }
     
-    func event(category: String, action: String, var label: String?, customParameters: Dictionary<String, String>?) {
+    func event(category: String, action: String, label: String?, customParameters: Dictionary<String, String>?) {
         /*
             An event hit with category, action, label
         */
-        if label == nil {
-            label = ""
-        }
-       
+         
         //event parameters category, action and label
-        var params = ["ec" : category, "ea" : action, "el" : label!]
+        var params = ["ec" : category, "ea" : action, "el" : label ?? ""]
         if (customParameters != nil) {
             for (key, value) in customParameters! {
                 params.updateValue(value, forKey: key)
