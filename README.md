@@ -8,7 +8,7 @@ All code for this tracker is located inside a single file “GATracker.swift”.
 
 This library creates an object (a tracker) that holds persistent values such as client id, property id, and more. The tracker is created with the following command:
 ```
-GATracker.setup("UA-1234567-89")
+GATracker.setup(tid: "UA-1234567-89")
 ```
 This code should run in the AppDelegate method applicationDidFinishLaunchingWithOptions.
 
@@ -17,24 +17,24 @@ Once the tracker is set up you can start sending Google Analytics hits from your
 ### Screenview
 When sending the screenview hit type, the screenname parameter is a required field.
 ```
-GATracker.sharedInstance.screenView("FirstScreen", customParameters: nil)
+GATracker.sharedInstance.screenView(screenName: "FirstScreen", customParameters: nil)
 ```
 ### Event
 When sending the event hit type, the event category and action a required fields
 ```
-GATracker.sharedInstance.event("category", action: "action", label: nil, customParameters: nil)
+GATracker.sharedInstance.event(category: "category", action: "action", label: nil, customParameters: nil)
 ```
 ### Exception
 When sending the exception hit, the exception description and exception “fatality” are both required parameters
 ```
-GATracker.sharedInstance.exception("This test failed", isFatal: true, customParameters: nil)
+GATracker.sharedInstance.exception(description: "This test failed", isFatal: true, customParameters: nil)
 ```
 ### Sending Additional Parameters
 With each hit you are also able to send additional parameters as specified in the Measurement Protocol reference. Examples include: “non interactive hit”, “event value”,  “custom dimensions”, “custom metrics” etc. 
 
 In the following example we will add custom metric values and set this event hit as non interactive. The example shows how to send a video progress hit that includes video name as custom dimension 1, video author as custom dimension 2 and sets the event as non interactive (since this event is not a result of user interaction).
 ```
-GATracker.sharedInstance.event("Video", action: "Progress", label:"50%", customParameters: ["cd1":"Incredible Video", "cd2":"Amazing A. Uthor", "ni":1])
+GATracker.sharedInstance.event(category: "Video", action: "Progress", label:"50%", customParameters: ["cd1":"Incredible Video", "cd2":"Amazing A. Uthor", "ni":1])
 ```
 As mentioned before you are able to use any measurement protocol parameters inside the customParameters dictionary.
 https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters?hl=en
@@ -44,12 +44,12 @@ Screenview, event and exception are not the only hit types available in Google A
 
 In the following example we will send a transaction hit with transaction id 10001 and transaction revenue of $425,00.
 ```
-GATracker.sharedInstance.send("transaction", params: ["tid":"10001", "tr":"425,00", "cu":"USD"])
+GATracker.sharedInstance.send(type: "transaction", params: ["tid":"10001", "tr":"425,00", "cu":"USD"])
 ```
 
 For additional information email gethelp@analyticspros.com or visit our website http://www.analyticspros.com
 ### Sample App
-When running the sample app make sure ot update the property id in the app delegate.
+When running the sample app make sure to update the property id in the app delegate.
 ```
-GATracker.setup("[insert your GA property id]")
+GATracker.setup(tid: "[insert your GA property id]")
 ```
