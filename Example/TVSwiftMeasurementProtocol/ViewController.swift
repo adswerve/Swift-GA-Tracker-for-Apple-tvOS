@@ -14,18 +14,18 @@ class ViewController: UIViewController {
 
         }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         GATracker.sharedInstance.screenView("FirstScreen", customParameters: nil)
     }
     
-    @IBAction func fireEvent(sender: AnyObject) {
+    @IBAction func fireEvent(_ sender: AnyObject) {
         print("Fire Event")
         GATracker.sharedInstance.event("a", action: "b", label: nil, customParameters: nil)
     }
 
-    @IBAction func nextScreenPressed(sender: AnyObject) {
-        self.performSegueWithIdentifier("toSecondViewController", sender: nil)
+    @IBAction func nextScreenPressed(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "toSecondViewController", sender: nil)
     }
 }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-private var _analyticsTracker: GATracker!
+private var _analyticsTracker: GATracker! = nil
 
 class GATracker {
     /*
@@ -20,7 +20,7 @@ class GATracker {
         @MPVersion = Measurement Protocol version
         @ua = User Agent string
     */
-    private var tid : String
+    fileprivate var tid : String
     var cid: String
     var appName : String
     var appVersion : String
@@ -29,11 +29,8 @@ class GATracker {
     var ul : String
     
     //Set up singleton object for the tracker
-    class func setup(tid: String) -> GATracker {
-        struct Static {
-            static var onceToken: dispatch_once_t = 0
-        }
-        dispatch_once(&Static.onceToken) {
+    class func setup(_ tid: String) -> GATracker {
+        if _analyticsTracker == nil {
             _analyticsTracker = GATracker(tid: tid)
         }
         return _analyticsTracker
@@ -58,29 +55,28 @@ class GATracker {
         #endif
         
         self.tid = tid
-        self.appName = NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String
-        let nsObject: AnyObject? = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]
+        self.appName = Bundle.main.infoDictionary!["CFBundleName"] as! String
+        let nsObject: AnyObject? = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as AnyObject
         self.appVersion = nsObject as! String
         self.ua = "Mozilla/5.0 (Apple TV; CPU iPhone OS 9_0 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13T534YI"
         self.MPVersion = "1"
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let cid = defaults.stringForKey("cid") {
+        let defaults = UserDefaults.standard
+        if let cid = defaults.string(forKey: "cid") {
             self.cid = cid
         }
         else {
-            self.cid = NSUUID().UUIDString
-            defaults.setObject(self.cid, forKey: "cid")
+            self.cid = UUID().uuidString
+            defaults.set(self.cid, forKey: "cid")
         }
         
-        let language = NSLocale.preferredLanguages().first
-        if language?.characters.count > 0 {
-            self.ul = language!
+        if let language = Locale.preferredLanguages.first, language.characters.count > 0 {
+            self.ul = language
         } else {
             self.ul = "(not set)"
         }
     }
     
-    func send(type: String, params: Dictionary<String, String>) {
+    func send(_ type: String, params: Dictionary<String, String>) {
         /*
             Generic hit sender to Measurement Protocol
             Consists out of hit type and a dictionary of other parameters
@@ -93,16 +89,16 @@ class GATracker {
         }
         
         //Encoding all the parameters
-        if let paramEndcode = parameters.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLPathAllowedCharacterSet()){
+        if let paramEndcode = parameters.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed){
             let urlString = endpoint + paramEndcode;
-            let url = NSURL(string: urlString);
+            let url = URL(string: urlString);
             
             #if DEBUG
                 print(urlString)
             #endif
             
-            let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) -> Void in
-                if let httpReponse = response as? NSHTTPURLResponse {
+            let task = URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) -> Void in
+                if let httpReponse = response as? HTTPURLResponse {
                     let statusCode = httpReponse.statusCode
                     #if DEBUG
                         print(statusCode)
@@ -115,12 +111,12 @@ class GATracker {
                             #endif
                         }
                 }
-            }
+            }) 
             task.resume()
         }
     }
     
-    func screenView(screenName: String, customParameters: Dictionary<String, String>?) {
+    func screenView(_ screenName: String, customParameters: Dictionary<String, String>?) {
         /*
             A screenview hit, use screenname
         */
@@ -133,13 +129,17 @@ class GATracker {
         self.send("screenview", params: params)
     }
     
-    func event(category: String, action: String, label: String?, customParameters: Dictionary<String, String>?) {
+    func event(_ category: String, action: String, label: String?, customParameters: Dictionary<String, String>?) {
+        var label = label
         /*
             An event hit with category, action, label
         */
-         
+        if label == nil {
+            label = ""
+        }
+       
         //event parameters category, action and label
-        var params = ["ec" : category, "ea" : action, "el" : label ?? ""]
+        var params = ["ec" : category, "ea" : action, "el" : label!]
         if (customParameters != nil) {
             for (key, value) in customParameters! {
                 params.updateValue(value, forKey: key)
@@ -148,7 +148,7 @@ class GATracker {
         self.send("event", params: params)
     }
     
-    func exception(description: String, isFatal:Bool, customParameters: Dictionary<String, String>?) {
+    func exception(_ description: String, isFatal:Bool, customParameters: Dictionary<String, String>?) {
         /*
             An exception hit with exception description (exd) and "fatality"  (Crashed or not) (exf)
         */

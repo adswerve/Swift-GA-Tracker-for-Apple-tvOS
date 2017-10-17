@@ -196,14 +196,16 @@
 				TargetAttributes = {
 					63FDDF041C043AA400A6E364 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = LRYVNX57AP;
+						LastSwiftMigration = 0830;
 					};
 					63FDDF151C043AA400A6E364 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = 63FDDF041C043AA400A6E364;
 					};
 					63FDDF201C043AA400A6E364 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = 63FDDF041C043AA400A6E364;
 					};
 				};
@@ -348,6 +350,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -384,6 +387,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
@@ -396,6 +400,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TVSwiftMeasurementProtocol/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.analyticspros.TVSwiftMeasurementProtocol;
@@ -409,6 +414,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TVSwiftMeasurementProtocol/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.analyticspros.TVSwiftMeasurementProtocol;
