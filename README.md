@@ -1,5 +1,5 @@
 # Google Analytics tracker for Apple tvOS
-by [Analytics Pros](https://www.analyticspros.com)
+by [Adswerve](https://www.adswerve.com)
 ## About
 Google Analytics tracker for Apple tvOS provides an easy integration of Google Analytics’ measurement protocol for Apple TV. This library enables sending screenviews, events, exceptions and any other hit type to Google Analytics. Implementation of the library and sending an initial hit to Google Analytics takes only a few minutes.
 
